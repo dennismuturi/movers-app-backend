@@ -3,8 +3,8 @@ class CreateMovers < ActiveRecord::Migration[7.0]
     create_table :movers do |t|
       t.string :company_name
       t.string :email
-      t.string :password
-      t.boolean :is_available
+      t.string :password_digest
+      t.boolean :is_available, :default => true
 
       t.timestamps
     end

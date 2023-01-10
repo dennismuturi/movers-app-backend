@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_100030) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_062838) do
   create_table "movers", force: :cascade do |t|
     t.string "company_name"
     t.string "email"
-    t.string "password"
-    t.boolean "is_available"
+    t.string "password_digest"
+    t.boolean "is_available", default: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
