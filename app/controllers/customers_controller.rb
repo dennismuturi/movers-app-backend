@@ -10,10 +10,26 @@ class CustomersController < ApplicationController
         render json: customer
     end
 
+    def create
+        Customer = Customer.create(customer_params)
+        render json: customer, status: :created
+    end
+
+    def destroy
+        Customer = Customer.find_by(id: params[:id])
+        customer.destroy
+    end
+
+    def update
+        customer = find_customer
+        customer.update!(customer_params)
+        render json: customer, status: :updated
+    end
+
     private
 
     def customer_params
-      params.permit :first_name, :last_name,  :password, :password_confirmation, :email
+      params.permit :first_name, :last_name,  :password, :email
     end
   
     def render_unprocessable_entity_response(invalid)
