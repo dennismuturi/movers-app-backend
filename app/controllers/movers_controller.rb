@@ -24,6 +24,12 @@ class MoversController < ApplicationController
        mover.update(params.permit(:password))
        render json: mover, status: :ok
     end
+
+    def destroy
+        mover = Mover.find(params[:id])
+        mover.destroy
+        head :no_content
+    end
     private
     def render_not_found_response
         render json: {error: "Mover Not Found"}, status: :not_found

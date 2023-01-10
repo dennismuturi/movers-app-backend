@@ -23,6 +23,12 @@ class VehiclesController < ApplicationController
         render json: vehicle, status: :ok
     end
 
+    def destroy
+        vehicle = Vehicle.find(params[:id])
+        vehicle.destroy
+        head :no_content
+    end
+
     private
     def render_not_found_response
         render json: {error: "vehicle Not Found"}, status: :not_found
