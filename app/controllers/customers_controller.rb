@@ -14,8 +14,8 @@ class CustomersController < ApplicationController
     def create
         Customer = Customer.create(customer_params)
         render json: customer, status: :created
-    rescue ActiveRecord::RecordInvalid => invalid
-        
+        rescue ActiveRecord::RecordInvalid => invalid
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity 
     end
 
     def destroy
@@ -33,7 +33,7 @@ class CustomersController < ApplicationController
     private
 
     def customer_params
-      params.permit :first_name, :last_name,  :password, :email
+      params.permit (:first_name, :last_name,  :password, :email) 
     end
   
     def render_unprocessable_entity_response(invalid)
