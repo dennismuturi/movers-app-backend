@@ -1,3 +1,4 @@
+require 'date'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -38,4 +39,13 @@ Vehicle.create(
     vehicle_number: "KDD 2223",
     vehicle_color: "grey",
     mover_id: Mover.second.id
+)
+
+
+CustomerOrder.create(
+    order_date: Date.today,
+    delivery_date: Date.today + 1,
+    customer_id: 1,
+    mover_id: 2,
+    price_id: 3,
 )
