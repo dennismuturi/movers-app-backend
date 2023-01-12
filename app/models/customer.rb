@@ -1,4 +1,5 @@
 class Customer < ApplicationRecord
-    customer has many customer_orders
-    customer has many movers through customer_orders
+    has_many :customer_orders
+    has_many :movers, through: :customer_orders
+    belongs_to :admin
 end

@@ -30,7 +30,7 @@ Vehicle.create(
     vehicle_type: "Pick-Up",
     vehicle_number: "KAT 2223",
     vehicle_color: "white",
-    mover_id: Mover.first.id
+    mover_id: 1
 )
 
 Vehicle.create(
@@ -38,7 +38,7 @@ Vehicle.create(
     vehicle_type: "Lorry",
     vehicle_number: "KDD 2223",
     vehicle_color: "grey",
-    mover_id: Mover.second.id
+    mover_id: 2
 )
 
 
@@ -48,4 +48,12 @@ CustomerOrder.create(
     customer_id: 1,
     mover_id: 2,
     price_id: 3,
+)
+
+Admin.create(
+    first_name: "Francis",
+    last_name: "Maina",
+    email: "francis@admin.com",
+    password: "test123",
+    customer_order_id: 1
 )
