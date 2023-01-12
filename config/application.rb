@@ -22,9 +22,12 @@ module MoversApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+  config.middleware.use ActionDispatch::Cookies
     # Configuration for the application, engines, and railties goes here.
-    #
+    config.middleware.use ActionDispatch::Session::CookieStore
+    # Use SameSite=Strict for all cookies to help protect against CSRF
+    config.action_dispatch.cookies_same_site_protection = :strict
+    # Skip views, helpers
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #
