@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :customer_orders
   resources :vehicles
+  
   resources :movers do
       resources :vehicles
   end
