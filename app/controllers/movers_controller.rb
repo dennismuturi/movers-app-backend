@@ -1,13 +1,14 @@
 class MoversController < ApplicationController
    
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
    
     def create
         mover = Mover.create!(mover_params)
-        render json: mover, status: :created
-    rescue ActiveRecord::RecordInvalid => invalid
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-
+        if mover.valid?
+            session[:mover_id]=mover.id
+            render json: mover, status: :created
+        end
     end
     
     def index
@@ -36,7 +37,9 @@ class MoversController < ApplicationController
     end
 
     def mover_params
-        params.permit(:company_name,:email,:password)
+        params.permit(:company_name,:email,:password, :password_confirmation)
     end
-
+    def record_invalid(invalid)
+        render json:{error: invalid.record.errors.full_messages}, status: :unprocessable_entity
+    end
 end
