@@ -90,6 +90,7 @@ GEM
     irb (1.6.2)
       reline (>= 0.3.0)
     jsonapi-renderer (0.2.2)
+    jwt (2.6.0)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -163,9 +164,11 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+
   active_model_serializers (~> 0.10.12)
   bcrypt
   debug
+  jwt
   puma (~> 5.0)
   rails (~> 7.0.4)
   sqlite3 (~> 1.4)
@@ -175,4 +178,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.3.26
+   2.3.24
