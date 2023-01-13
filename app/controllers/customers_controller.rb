@@ -15,7 +15,30 @@ class CustomersController < ApplicationController
         render json: customers, status: :ok
     end
     def show
+<<<<<<< HEAD
         customer =Customer.find(params[:id])
+=======
+        customer = find_customer
+        render json: customer,Serializer:CustomerSerializer 
+    end
+
+    def create
+        customer = Customer.create(customer_params)
+        render json: customer, status: :created
+        rescue ActiveRecord::RecordInvalid => invalid
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity 
+    end
+
+    def destroy
+        customer = Customer.find_by(id: params[:id])
+        customer.destroy
+        head :no_content
+    end
+
+    def update
+        customer = find_customer
+        customer.update!(customer_params)
+>>>>>>> b7f8c6e (fixed customer post)
         render json: customer, status: :ok
     end
 
@@ -36,9 +59,19 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
+<<<<<<< HEAD
         params.permit(:username,:email,:password, :password_confirmation)
+=======
+      params.permit(:first_name, :last_name,  :password, :email) 
+>>>>>>> b7f8c6e (fixed customer post)
     end
     def record_invalid(invalid)
         render json:{error: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
+<<<<<<< HEAD
 end
+=======
+  end
+
+
+>>>>>>> b7f8c6e (fixed customer post)

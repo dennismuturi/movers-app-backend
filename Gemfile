@@ -30,3 +30,8 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
+<<<<<<< HEAD
+=======
+
+#gem "active_model_serializers", "~> 0.10.12"
+>>>>>>> b7f8c6e (fixed customer post)

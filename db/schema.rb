@@ -10,17 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.0].define(version: 2023_01_13_165342) do
+=======
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_230216) do
+>>>>>>> b7f8c6e (fixed customer post)
   create_table "customer_orders", force: :cascade do |t|
     t.date "order_date"
     t.date "delivery_date"
     t.integer "customer_id"
     t.integer "mover_id"
     t.integer "price_id"
+<<<<<<< HEAD
+=======
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password"
+>>>>>>> b7f8c6e (fixed customer post)
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+<<<<<<< HEAD
   create_table "customers", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -32,6 +49,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_165342) do
     t.boolean "is_available"
   end
 
+=======
+>>>>>>> b7f8c6e (fixed customer post)
   create_table "movers", force: :cascade do |t|
     t.string "company_name"
     t.string "email"
