@@ -16,9 +16,13 @@ class CustomersController < ApplicationController
     end
     def show
 <<<<<<< HEAD
+<<<<<<< HEAD
         customer =Customer.find(params[:id])
 =======
         customer = find_customer
+=======
+        customer = Customer.find(params[:id])
+>>>>>>> 51574e3 (fixed a bug on delete)
         render json: customer,Serializer:CustomerSerializer 
     end
 
@@ -69,8 +73,15 @@ class CustomersController < ApplicationController
         render json:{error: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
 <<<<<<< HEAD
+<<<<<<< HEAD
 end
 =======
+=======
+
+    def render_not_found_response
+      render json: {error: "Customer Not Found"}, status: :not_found
+  end
+>>>>>>> 51574e3 (fixed a bug on delete)
   end
 
 
