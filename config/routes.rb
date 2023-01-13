@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'signup_customer', to: 'customers#create'
 
   resources :vehicles
+  
   resources :movers do
       resources :vehicles
   end
