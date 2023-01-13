@@ -9,7 +9,7 @@ require 'date'
 
 
 
-Mover.create(
+Customer.create(
     company_name: "Quick Movers", 
     email: "quickmovers@gmail.com", 
     password: "quickmovers",
@@ -17,7 +17,7 @@ Mover.create(
 )
 
 
-Mover.create(company_name: "Carry and Load Movers", 
+Customer.create(company_name: "Carry and Load Movers", 
     email: "carryandload@gmail.com", 
     password: "carryandload",
     is_available: true
@@ -30,7 +30,7 @@ Vehicle.create(
     vehicle_type: "Pick-Up",
     vehicle_number: "KAT 2223",
     vehicle_color: "white",
-    mover_id: Mover.first.id
+    mover_id: Customer.first.id
 )
 
 Vehicle.create(
@@ -38,7 +38,7 @@ Vehicle.create(
     vehicle_type: "Lorry",
     vehicle_number: "KDD 2223",
     vehicle_color: "grey",
-    mover_id: Mover.second.id
+    mover_id: Customer.second.id
 )
 
 
