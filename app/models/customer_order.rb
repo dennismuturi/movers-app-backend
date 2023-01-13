@@ -3,6 +3,6 @@ class CustomerOrder < ApplicationRecord
     validates :mover_id, presence: true
 
     # belongs_to :admin 
-    # belongs_to :customer
+     belongs_to :customer
     belongs_to :mover
 end
