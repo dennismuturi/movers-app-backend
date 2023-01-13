@@ -1,7 +1,7 @@
 class MoversController < ApplicationController
    
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
    
     def create
         mover = Mover.create!(mover_params)
