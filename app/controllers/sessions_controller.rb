@@ -1,21 +1,23 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
-  def create
-    customer = Customer.find_by(email: params[:email])
-    if customer && customer.authenticate(params[:password])
-      session[:customer_id] = customer.id
-      render json: customer, status: :created
+  before_action :validate_mover_params, only: [:create_mover]
+  def mover_login
+    mover = Mover.find_by(email: params[:email])
+    if mover&.authenticate(params[:password])
+      signin_mover(mover)
     else
-      flash[:danger] = "Invalid email or password"
-      redirect_to customers_login_path
+      render json: { error: 'Invalid username or password' }, status: :unauthorized
     end
   end
-   
-
-  def destroy
-    session[:customer_id] = nil
-    redirect_to root_path
+  def customer_login
+    customer = Customer.find_by(email: params[:email])
+    if customer&.authenticate(params[:password])
+      signin_customer(customer)
+    else
+      render json: { error: 'Invalid username or password' }, status: :unauthorized
+    end
+  end
+  def logout_mover
+    session.delete(:mover_id)
+    render json: { message: "Successfully logged out mover" }, status: :ok
   end
 end
