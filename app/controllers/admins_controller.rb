@@ -15,6 +15,7 @@ class AdminsController < ApplicationController
     def show
         admin =Admin.find(params[:id])
         render json: admin, status: :ok
+
     end
 
     def update

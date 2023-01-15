@@ -164,8 +164,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-
-  active_model_serializers (~> 0.10.12)
+  active_model_serializers (~> 0.10.2)
   bcrypt
   debug
   jwt
@@ -174,8 +173,5 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   tzinfo-data
 
-RUBY VERSION
-   ruby 2.7.4p191
-
 BUNDLED WITH
-   2.3.24
+   2.3.18

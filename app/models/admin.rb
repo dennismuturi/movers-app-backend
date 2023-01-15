@@ -3,6 +3,7 @@ class Admin < ApplicationRecord
     # validates :email, presence: true 
     # validates :password, presence: true
 
+    has_many :customer_orders
     has_many :customers, through: :customer_orders
     has_many :movers, through: :customer_orders
 end

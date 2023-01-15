@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   before_action :validate_mover_params, only: [:create_mover]
+  
+ 
   def mover_login
     mover = Mover.find_by(email: params[:email])
     if mover&.authenticate(params[:password])

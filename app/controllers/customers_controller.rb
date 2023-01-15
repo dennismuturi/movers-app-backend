@@ -8,29 +8,24 @@ class CustomersController < ApplicationController
             session[:customer_id]=customer.id
             render json: customer, status: :created
         end
+        rescue ActiveRecord::RecordInvalid => invalid
+        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity 
     end
     
     def index
+        if params[:admin_id]
+            admin = Admin.find(params[:admin_id])
+            customers =admin.customers
+            movers = admin.movers
+        else
         customers = Customer.all
+        end
         render json: customers, status: :ok
     end
     def show
-<<<<<<< HEAD
-<<<<<<< HEAD
-        customer =Customer.find(params[:id])
-=======
-        customer = find_customer
-=======
+        
         customer = Customer.find(params[:id])
->>>>>>> 51574e3 (fixed a bug on delete)
         render json: customer,Serializer:CustomerSerializer 
-    end
-
-    def create
-        customer = Customer.create(customer_params)
-        render json: customer, status: :created
-        rescue ActiveRecord::RecordInvalid => invalid
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity 
     end
 
     def destroy
@@ -40,9 +35,7 @@ class CustomersController < ApplicationController
     end
 
     def update
-        customer = find_customer
         customer.update!(customer_params)
->>>>>>> b7f8c6e (fixed customer post)
         render json: customer, status: :ok
     end
 
@@ -63,26 +56,18 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-<<<<<<< HEAD
-        params.permit(:username,:email,:password, :password_confirmation)
-=======
-      params.permit(:first_name, :last_name,  :password, :email) 
->>>>>>> b7f8c6e (fixed customer post)
+        params.permit(:name,:email,:password, :password_confirmation,:phone_number)
+
     end
     def record_invalid(invalid)
         render json:{error: invalid.record.errors.full_messages}, status: :unprocessable_entity
     end
-<<<<<<< HEAD
-<<<<<<< HEAD
-end
-=======
-=======
 
-    def render_not_found_response
+
+
+def render_not_found_response
       render json: {error: "Customer Not Found"}, status: :not_found
   end
->>>>>>> 51574e3 (fixed a bug on delete)
+
   end
 
-
->>>>>>> b7f8c6e (fixed customer post)

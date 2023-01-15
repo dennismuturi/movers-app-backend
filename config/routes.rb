@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :admins
+  resources :admins do
+    resources :customers 
+  end
   post "/signup", to: "admins#signup"
   post "/login", to: "admins#login"
   delete "/signout", to: "admins#signout"

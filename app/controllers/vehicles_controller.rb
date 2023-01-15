@@ -11,7 +11,7 @@ class VehiclesController < ApplicationController
     
     def index
         if params[:mover_id]
-            mover = Customer.find(params[:mover_id])
+            mover = Mover.find(params[:mover_id])
             vehicles = mover.vehicles
         else
         vehicles = Vehicle.all

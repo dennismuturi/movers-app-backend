@@ -9,28 +9,53 @@ require 'date'
 
 
 
-Customer.create(
+Mover.create(
     company_name: "Quick Movers", 
     email: "quickmovers@gmail.com", 
     password: "quickmovers",
+    password_confirmation: "quickmovers",
     is_available: true
 )
 
 
-Customer.create(company_name: "Carry and Load Movers", 
+Mover.create(
+    company_name: "Carry and Load Movers", 
     email: "carryandload@gmail.com", 
     password: "carryandload",
+    password_confirmation: "carryandload",
     is_available: true
 )
 
 
+Customer.create(
+    name: "Lewih Munyambu",
+    email: "lewih@gmail.com",
+    phone_number: "0733221122",
+    password:"lewih",
+    password_confirmation:"lewih"
+)
+
+Customer.create(
+    name: "Francis Kabutha",
+    email: "francis@gmail.com",
+    phone_number: "0733221122",
+    password:"francis",
+    password_confirmation:"francis"
+)
+
+Customer.create(
+    name: "Maureen Chepkemoi",
+    email: "maureen@gmail.com",
+    phone_number: "0733221122",
+    password:"maureen",
+    password_confirmation:"maureen"
+)
 
 Vehicle.create(
     vehicle_name: "Isuzu D-Max",
     vehicle_type: "Pick-Up",
     vehicle_number: "KAT 2223",
     vehicle_color: "white",
-
     mover_id: 1
 
 )
@@ -40,7 +65,6 @@ Vehicle.create(
     vehicle_type: "Lorry",
     vehicle_number: "KDD 2223",
     vehicle_color: "grey",
-
     mover_id: 2
 
     
@@ -60,5 +84,4 @@ Admin.create(
     last_name: "Maina",
     email: "francis@admin.com",
     password: "test123",
-    customer_order_id: 1
 )
