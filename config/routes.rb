@@ -21,14 +21,14 @@ Rails.application.routes.draw do
   end
  
 
-    post '/movers/login', to: 'sessions#mover_login'
-    delete 'movers/logout', to: 'sessions#destroy'
+    post '/mover/login', to: 'sessions#mover_login'
+    delete 'mover/logout', to: 'sessions#destroy'
     # other routes for the movers namespace
 
   # Customers routes
 
-    post '/login', to: 'sessions#customer_login'
-    delete '/logout', to: 'sessions#destroy', as: 'logout'
+    post '/customer/login', to: 'sessions#customer_login'
+    delete '/customer/logout', to: 'sessions#destroy', as: 'logout'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

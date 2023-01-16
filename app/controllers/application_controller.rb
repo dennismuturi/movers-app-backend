@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
     helper_method :mover_params, :customer_params, :signin_mover, :signin_customer
     private
     def mover_params
-      params.permit( :username, :email, :password, :password_confirmation)
+      params.permit( :company_name, :email, :password, :password_confirmation)
     end
     def customer_params
-      params.permit(:username, :email, :password, :password_confirmation)
+      params.permit(:name, :email, :password, :password_confirmation)
     end
 
     def signin_mover(mover)
