@@ -10,13 +10,16 @@ class MoversController < ApplicationController
             render json: mover, status: :created
         end
     end
-    
     def index
         movers = Mover.all
         render json: movers, status: :ok
     end
     def show
         mover =Mover.find(params[:id])
+        render json: mover, status: :ok
+    end
+      def auto_login_mover
+        mover =Mover.find_by(id:session[:mover_id])
         render json: mover, status: :ok
     end
 

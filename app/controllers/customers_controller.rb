@@ -27,6 +27,10 @@ class CustomersController < ApplicationController
         customer = Customer.find(params[:id])
         render json: customer,Serializer:CustomerSerializer 
     end
+        def auto_login_customer
+        customer = Customer.find_by(id:session[:customer_id])
+        render json: customer,Serializer:CustomerSerializer 
+    end
 
     def destroy
         customer = Customer.find_by(id: params[:id])
