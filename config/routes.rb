@@ -21,6 +21,7 @@ Rails.application.routes.draw do
  
   get '/auto_login_customer', to: 'customers#auto_login_customer'
   get '/auto_login_mover', to: 'movers#auto_login_mover'
+  get  '/movers#request_now', to: 'movers#request_now'
   
       post '/mover_login', to: 'sessions#mover_login'
       delete 'movers/logout', to: 'sessions#destroy'
