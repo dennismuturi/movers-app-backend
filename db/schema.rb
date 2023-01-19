@@ -39,6 +39,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_073716) do
     t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "company_name"
+    t.boolean "is_available"
   end
 
   create_table "movers", force: :cascade do |t|
