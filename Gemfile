@@ -19,6 +19,7 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # gem "rack-cors"
 gem "bcrypt"
 
+gem 'rack-cors'
 
 # gem 'active_model_serializers', '~> 0.10.2'
 gem 'jwt'

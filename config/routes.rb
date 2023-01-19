@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :vehicles
   end
  
+<<<<<<< HEAD
   get '/auto_login_customer', to: 'customers#auto_login_customer'
   get '/auto_login_mover', to: 'movers#auto_login_mover'
   
@@ -29,6 +30,17 @@ Rails.application.routes.draw do
 
     post '/customer_login', to: 'sessions#customer_login'
     delete '/logout', to: 'sessions#destroy', as: 'logout'
+=======
+
+    post '/mover/login', to: 'sessions#mover_login'
+    delete 'mover/logout', to: 'sessions#destroy'
+    # other routes for the movers namespace
+
+  # Customers routes
+
+    post '/customer/login', to: 'sessions#customer_login'
+    delete '/customer/logout', to: 'sessions#destroy', as: 'logout'
+>>>>>>> 3020e43d0e7c12f09b0b1a4e8097642514da395a
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
