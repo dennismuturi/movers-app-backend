@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   delete "/signout", to: "admins#signout"
   
 
-  get 'movers/mover'
   resources :customers
   resources :customer_orders
   post 'signup_mover', to: 'movers#create'
@@ -20,14 +19,15 @@ Rails.application.routes.draw do
       resources :vehicles
   end
  
-
-    post '/movers/login', to: 'sessions#mover_login'
-    delete 'movers/logout', to: 'sessions#destroy'
-    # other routes for the movers namespace
-
+  get '/auto_login_customer', to: 'customers#auto_login_customer'
+  get '/auto_login_mover', to: 'movers#auto_login_mover'
+  
+      post '/mover_login', to: 'sessions#mover_login'
+      delete 'movers/logout', to: 'sessions#destroy'
+      # other routes for the movers namespace
   # Customers routes
 
-    post '/login', to: 'sessions#customer_login'
+    post '/customer_login', to: 'sessions#customer_login'
     delete '/logout', to: 'sessions#destroy', as: 'logout'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
