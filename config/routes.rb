@@ -30,6 +30,16 @@ Rails.application.routes.draw do
     post '/customer/login', to: 'sessions#customer_login'
     delete '/customer/logout', to: 'sessions#destroy', as: 'logout'
 
+
+    #new Auth
+
+    post '/customerlogin', to: 'auth#create'
+    delete '/customerlogout', to: 'auth#destroy'
+
+
+
+    post '/moverlogin', to: 'auth#create'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
