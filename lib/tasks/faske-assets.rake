@@ -3,5 +3,9 @@ namespace :assets do
     task :precompile do
         puts "This is a Fake assests:precompile"
     end
-    
+
+    task :clean do
+        puts "This is a Fake assests:clean"
+    end
+
 end
