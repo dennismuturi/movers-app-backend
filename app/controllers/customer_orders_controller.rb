@@ -39,6 +39,6 @@ class CustomerOrdersController < ApplicationController
     end
 
     def customer_order_params
-        params.permit(:order_date, :delivery_date, :customer_id, :mover_id, :price_id)
+        params.permit(:order_date, :delivery_date, :customer_id, :mover_id, :price_id, :pickup, :destination)
     end
 end

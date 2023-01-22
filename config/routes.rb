@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     #new Auth
 
     post '/customerlogin', to: 'auth#create'
-    delete '/customerlogout', to: 'auth#destroy'
+    delete '/customerlogout/:id', to: 'auth#destroy'
 
 
 
