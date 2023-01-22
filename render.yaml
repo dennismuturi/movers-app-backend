@@ -1,7 +1,7 @@
 databases:
   - name: movers-app-backend
-    databaseName: movers-app-backend
-    user: movers-app-backend
+    databaseName: movers_app_backend
+    user: movers_app_backend
 
 services:
   - type: web
