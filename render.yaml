@@ -1,18 +1,18 @@
 databases:
   - name: movers-app-backend
-    databaseName: overs-app-backend
-    user: overs-app-backend
+    databaseName: movers-app-backend
+    user: movers-app-backend
 
 services:
   - type: web
-    name: overs-app-backend
+    name: movers-app-backend
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: overs-app-backend
+          name: movers-app-backend
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
