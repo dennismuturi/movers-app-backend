@@ -1,4 +1,4 @@
-# Phase 5  Final Project : Movers App
+# Phase 5  Final Project : Movers App  (BackEnd)
 
 ## Focus 🎯
 Building a Movers backend that uses Active Record to access and persist data in a database, which will be used by a separate React frontend that interacts with the database via the API.
